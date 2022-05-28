@@ -126,6 +126,7 @@ router.put("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
   Product.destroy({
+    onDelete: 'cascade',
     where: {
       id: req.params.id,
     },
