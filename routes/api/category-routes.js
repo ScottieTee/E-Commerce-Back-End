@@ -16,12 +16,12 @@ router.get("/", (req, res) => {
     .catch((err) => {
       console.log(err);
       res.json(err);
+    });
 });
 
 router.get("/:id", (req, res) => {
   Category.findOne({
-    where: {
-      
+    where: {   
     id: req.params.id,
   },
   include: [
@@ -35,6 +35,7 @@ router.get("/:id", (req, res) => {
     .catch((err) => {
       console.log(err);
       res.json(err);
+    });
 });
 
 router.post("/", (req, res) => {
@@ -62,7 +63,6 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.delete("/:id", (req, res) => {
   router.delete("/:id", (req, res) => {
     Category.destroy({
       where: {
@@ -74,6 +74,7 @@ router.delete("/:id", (req, res) => {
         console.log(err);
         res.json(err);
       });
+  })
 });
 
 module.exports = router;
